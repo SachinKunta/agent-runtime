@@ -192,7 +192,7 @@ func search(query string) string {
 		return descriptions[0]
 	}
 
-	// Fetch full summary
+	// `F`etch full summary
 	title := titles[0]
 	summaryURL := fmt.Sprintf("https://en.wikipedia.org/api/rest_v1/page/summary/%s", strings.ReplaceAll(title, " ", "_"))
 

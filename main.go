@@ -45,7 +45,7 @@ func main() {
 	messages := []Message{
 		{
 			Role:    "system",
-			Content: "You are a helpful assistant with tools: calculator (math), get_weather (weather by city), search (web search for facts). Use the right tool when needed. Do not guess answers.",
+			Content: "You are an agentic engineer. Use the <think> tag to plan your tool calls step-by-step. If a tool returns an error, reason about the fix and try again.",
 		},
 	}
 
@@ -72,10 +72,11 @@ func main() {
 			Content: userInput,
 		})
 
+		fmt.Println(messages)
 		// Agent loop
 		for {
 			reqBody := ChatRequest{
-				Model:    "llama3.1:8b",
+				Model:    "qwen3:8b",
 				Messages: messages,
 				Stream:   false,
 				Tools:    tools,
